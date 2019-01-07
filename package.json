@@ -1,0 +1,11 @@
+{
+  "name": "jdoodle-client-example",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "apivis": "^6.1.2",
+    "peek42": "^5.6.0"
+  }
+}
