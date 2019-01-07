@@ -6,6 +6,13 @@
   },
   "dependencies": {
     "apivis": "^6.1.2",
+    "dotenv": "^6.2.0",
+    "jdoodle-client": "^1.0.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.4.0",
+    "koa-websocket": "^5.0.1",
     "peek42": "^5.6.0"
   }
 }
