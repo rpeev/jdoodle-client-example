@@ -1,0 +1,48 @@
+extends layout
+
+block content0
+  script.
+    (() => { 'use strict';
+      const elem = id => document.getElementById(id);
+      const on = (t, e, h) => t.addEventListener(e, h);
+      const ready = h => on(document, 'DOMContentLoaded', h);
+
+      ready(() => {
+        on(elem('execute'), 'click', async () => {
+          let [langAndVerIndex, stdin, script] = elem('program').
+            value.split(/\s--\s/m);
+          let [language, versionIndex] = langAndVerIndex.split(/\s/);
+
+          p(`execute...`, null);
+          pp(await jdoodle.execute({
+            language,
+            versionIndex: Number(versionIndex) || 0,
+            stdin,
+            script
+          }), `execute`);
+        });
+
+        on(elem('creditSpent'), 'click', async () => {
+          p(`creditSpent...`, null);
+          pp(await jdoodle.creditSpent(), `creditSpent`);
+        });
+      });
+    })();
+
+block content
+  h1= title
+
+  p
+    button(id='execute') Execute
+    button(id='creditSpent') Credit Spent
+  p
+    textarea(
+      id='program',
+      rows='20', cols='80',
+      style='font-family: Monofur; font-size: 1.2em;'
+    ).
+      ruby 2
+      --
+      Hey!
+      --
+      puts "ruby \#{RUBY_VERSION}: \#{ARGF.read}"

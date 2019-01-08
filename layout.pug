@@ -1,0 +1,20 @@
+doctype html
+
+html(lang='en', style='font-family: Avenir, sans-serif;')
+  head
+    meta(charset='utf-8')
+
+    title= title
+
+    link(rel='stylesheet', href='https://unpkg.com/peek42@latest/dist/peek42.css')
+
+    script(src='https://unpkg.com/apivis@latest/dist/apivis.browser.js')
+    script(src='https://unpkg.com/peek42@latest/dist/peek42.browser.js')
+    script.
+      peek42.cable.init();
+    script(src='https://unpkg.com/jdoodle-client@latest/dist/jdoodle-client.browser.js')
+
+    block content0
+
+  body
+    block content

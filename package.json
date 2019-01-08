@@ -2,7 +2,10 @@
   "name": "jdoodle-client-example",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./app.js"
+    "start": "node ./app.js",
+    "pm:stop": "sudo pm2 stop ./pm2.process.json",
+    "pm:start": "sudo pm2 start ./pm2.process.json",
+    "pm:restart": "sudo pm2 restart ./pm2.process.json --update-env"
   },
   "dependencies": {
     "apivis": "^6.1.2",

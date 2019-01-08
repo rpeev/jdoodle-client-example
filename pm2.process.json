@@ -1,0 +1,7 @@
+{
+  "name": "jdoodle-client-example",
+  "script": "npm",
+  "args": "start",
+  "watch": true,
+  "ignore_watch": ["node_modules"]
+}
