@@ -50,11 +50,12 @@ block content0
           let seconds = (t1 - t0) / 1000;
 
           if (!result.error) {
+            let stats = `mem: ${result.memory}K, cpu: ${result.cpuTime}`;
             let reFailure = /Command exited with non-zero status -?\d+\s?$/m;
             let failed = result.output.match(reFailure);
             let level = (failed) ? 'warn' : 'log';
 
-            p(result.output, `(in ${seconds.toFixed(3)}s) ${msg}`, {level});
+            p(result.output, `(in ${seconds.toFixed(3)}s (${stats})) ${msg}`, {level});
           } else {
             pp(result, `Error: ${result.error}`, {level: 'error'});
           }
