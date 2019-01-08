@@ -9,6 +9,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const withWebSocket = require('koa-websocket');
 const bodyParser = require('koa-bodyparser');
+const staticFiles = require('koa-static');
 const Pug = require('koa-pug');
 const jdoodle = require('jdoodle-client');
 
@@ -47,6 +48,7 @@ wsRouter.get('/peek42', ctx => {
   peek42.cable.init(ctx.websocket);
 });
 
+app.use(staticFiles('./public'));
 app.use(bodyParser());
 app.use(httpRouter.routes());
 app.ws.use(wsRouter.routes());
