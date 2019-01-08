@@ -1,6 +1,29 @@
 extends layout
 
 block content0
+  style.
+    .ui { font-family: Avenir, sans-serif; }
+    .code { font-family: Monofur, monospace; }
+    .light { background: whitesmoke; color: black; }
+    .tight { margin: 0; padding: 0; }
+
+    #about {
+      padding: 0.5ex 0 0 1ex;
+      color: #333333;
+      font-size: 130%;
+    }
+
+    #program {
+      float: left;
+      color: #333333;
+      font-size: 1.2em;
+    }
+
+    #execute, #creditSpent {
+      width: 6em;
+      font-size: 120%;
+    }
+
   script.
     (() => { 'use strict';
       const elem = id => document.getElementById(id);
@@ -30,20 +53,18 @@ block content0
     })();
 
 block content
-  h1= title
+  h1(class='tight', id='about')= title
 
-  p
-    button(id='execute') Execute
-    button(id='creditSpent') Credit Spent
-  p
-    textarea(
-      id='program',
-      rows='20', cols='80',
-      autocorrect='off',
-      style='font-family: Monofur; font-size: 1.2em;'
+  p(class='tight')
+    textarea(class='code', id='program',
+      rows='25', cols='80', autocorrect='off'
     ).
       ruby 2
       --
       Hey!
       --
       puts "ruby \#{RUBY_VERSION}: \#{ARGF.read}"
+
+    button(id='execute') Execute
+    br
+    button(id='creditSpent') Credit

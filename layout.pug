@@ -1,6 +1,6 @@
 doctype html
 
-html(lang='en', style='font-family: Avenir, sans-serif;')
+html(lang='en', class='ui light tight')
   head
     meta(charset='utf-8')
 
@@ -9,7 +9,10 @@ html(lang='en', style='font-family: Avenir, sans-serif;')
 
     title= title
 
+    //link(rel='apple-touch-icon', href='./gears.png')
+
     link(rel='stylesheet', href='https://unpkg.com/peek42@latest/dist/peek42.css')
+    //link(rel='stylesheet', href='https://unpkg.com/peek42@latest/dist/peek42-dark.css')
 
     script(src='https://unpkg.com/apivis@latest/dist/apivis.browser.js')
     script(src='https://unpkg.com/peek42@latest/dist/peek42.browser.js')
@@ -19,5 +22,5 @@ html(lang='en', style='font-family: Avenir, sans-serif;')
 
     block content0
 
-  body
+  body(class='tight')
     block content
