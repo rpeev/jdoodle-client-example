@@ -35,19 +35,43 @@ block content0
           let [langAndVerIndex, stdin, script] = elem('program').
             value.split(/\s--\s/m);
           let [language, versionIndex] = langAndVerIndex.split(/\s/);
+          let msg = `execute ${language} program`;
 
-          p(`execute...`, null);
-          pp(await jdoodle.execute({
+          p(`${msg}...`, null);
+
+          let t0 = performance.now();
+          let result = await jdoodle.execute({
             language,
             versionIndex: Number(versionIndex) || 0,
             stdin,
             script
-          }), `execute`);
+          });
+          let t1 = performance.now();
+          let seconds = (t1 - t0) / 1000;
+
+          if (!result.error) {
+            let reFailure = /Command exited with non-zero status -?\d+\s?$/m;
+            let failed = result.output.match(reFailure);
+            let level = (failed) ? 'warn' : 'log';
+
+            p(result.output, `(in ${seconds.toFixed(3)}s) ${msg}`, {level});
+          } else {
+            pp(result, `Error: ${result.error}`, {level: 'error'});
+          }
         });
 
         on(elem('creditSpent'), 'click', async () => {
-          p(`creditSpent...`, null);
-          pp(await jdoodle.creditSpent(), `creditSpent`);
+          let msg = `credit(s) spent`;
+
+          p(`${msg}...`, null);
+
+          let result = await jdoodle.creditSpent();
+
+          if (!result.error) {
+            p(`${result.used} ${msg}`, null);
+          } else {
+            pp(result, `Error: ${result.error}`, {level: 'error'});
+          }
         });
       });
     })();
