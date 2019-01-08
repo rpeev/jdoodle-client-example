@@ -2,6 +2,10 @@
 
 JavaScript JDoodle API Client Example
 
+![Screenshot](./screenshot.png)
+
+## Install & Run
+
 ```bash
 git clone https://github.com/rpeev/jdoodle-client-example.git
 cd jdoodle-client-example/
