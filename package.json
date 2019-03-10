@@ -8,7 +8,7 @@
     "pm:restart": "sudo pm2 restart ./pm2.process.json --update-env"
   },
   "dependencies": {
-    "apivis": "^6.1.2",
+    "apivis": "^6.3.0",
     "dotenv": "^6.2.0",
     "jdoodle-client": "^1.0.2",
     "koa": "^2.7.0",
@@ -17,6 +17,6 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa-websocket": "^5.0.1",
-    "peek42": "^5.6.0"
+    "peek42": "^5.8.0"
   }
 }
