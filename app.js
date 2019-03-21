@@ -13,7 +13,7 @@ const staticFiles = require('koa-static');
 const Pug = require('koa-pug');
 const jdoodle = require('jdoodle-client');
 
-dotenv.load();
+dotenv.config();
 
 let app = withWebSocket(new Koa());
 let httpRouter = new Router();
