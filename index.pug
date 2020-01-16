@@ -41,6 +41,7 @@ block content0
 
           let t0 = performance.now();
           let result = await jdoodle.execute({
+            endpoint: `${document.location.href.split('?')[0]}${jdoodle.defaultExecutePath}`,
             language,
             versionIndex: Number(versionIndex) || 0,
             stdin,
@@ -66,7 +67,9 @@ block content0
 
           p(`${msg}...`, null);
 
-          let result = await jdoodle.creditSpent();
+          let result = await jdoodle.creditSpent({
+            endpoint: `${document.location.href.split('?')[0]}${jdoodle.defaultCreditSpentPath}`
+          });
 
           if (!result.error) {
             p(`${result.used} ${msg}`, null);
@@ -84,7 +87,7 @@ block content
     textarea(class='code', id='program',
       rows='25', cols='80', autocorrect='off'
     ).
-      ruby 2
+      ruby 3
       --
       Hey!
       --
