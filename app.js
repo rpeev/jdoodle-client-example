@@ -32,8 +32,8 @@ httpRouter.get('*', async (ctx, next) => {
   await next();
 });
 
-httpRouter.get('/', ctx => {
-  ctx.render('index');
+httpRouter.get('/', async ctx => {
+  await ctx.render('index');
 });
 
 httpRouter.post(jdoodle.defaultExecutePath, async ctx => {
